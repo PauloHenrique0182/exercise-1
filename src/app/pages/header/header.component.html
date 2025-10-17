@@ -2,5 +2,10 @@
   <button routerLink="/">Home</button>
   <button routerLink="/books">Books</button>
   <button routerLink="/contact">Me</button>
-  <button routerLink="/login">Logout</button>
+
+  <button *ngIf="authService.isLoggedIn(); else loginBtn" (click)="logout()">Logout</button>
+
+  <ng-template #loginBtn>
+    <button routerLink="/login">Login</button>
+  </ng-template>
 </div>

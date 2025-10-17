@@ -1,6 +1,7 @@
 import { NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +12,16 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
 
 
-  credentials = {email: '', password: ''};
+  credentials = { email: '', password: '' };
 
-   submit(){
-   // if(this.credentials.email && this.credentials.password){
+  authService = inject(AuthService);
 
-      //this.authService.login(this.credentials).subscribe();
-    //}
-      
 
+  submit() {
+    this.authService.login();
+  }
+   isLoggedIn(): boolean {
+    return this.authService.isLoggedIn();
   }
 
 }

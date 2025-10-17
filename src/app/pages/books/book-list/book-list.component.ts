@@ -1,9 +1,10 @@
 import { AsyncPipe, NgFor } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Book } from '../../../infrastructure/types/book';
 import { BookService } from '../../../services/book.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-book-list',
@@ -13,8 +14,14 @@ import { BookService } from '../../../services/book.service';
 })
 export class BookListComponent implements OnInit {
   bookService = inject(BookService);
+  authService = inject(AuthService);
+  router = inject(Router)
   books$!: Observable<Book[]>;
   ngOnInit() {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+      return;
+    }
     this.showAll();
   }
 
