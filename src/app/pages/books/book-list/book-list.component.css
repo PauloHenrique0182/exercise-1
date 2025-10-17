@@ -13,3 +13,25 @@
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+.filter-buttons {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 15px; /* espaçamento entre os botões */
+  margin: 20px 0; /* espaçamento acima e abaixo */
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #0056b3;
+}
