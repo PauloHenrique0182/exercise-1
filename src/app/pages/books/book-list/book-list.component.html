@@ -1,18 +1,14 @@
 <h2>Livros de JS</h2>
 
-<ul>
-
-    <li *ngFor="let book of books$ | async">
-
-        <p>{{book.title}} </p>
-        <p>{{book.author}} </p>
-        <p>{{book.imageUrl}} </p>
-        <p>Already ready: {{book.alreadyRead}} </p>
-
-       
-
-    </li>
+<ul class="books-grid">
+  <li *ngFor="let book of books$ | async" class="book-item">
+    <p>{{ book.title }}</p>
+    <p>{{ book.author }}</p>
+    <img [src]="'/livros/' + book.imageUrl" alt="{{ book.title }}" width="150" />
+    <p>Already read: {{ book.alreadyRead ? '✔️' : '❌' }}</p>
 
 
+     <button [routerLink]="['/books', book.id]">Ver detalhes</button>
 
+  </li>
 </ul>

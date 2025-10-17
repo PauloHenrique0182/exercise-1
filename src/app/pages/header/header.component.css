@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: center; /* centraliza tudo */
+  align-items: center;
+  background-color: #00ffff; /* cor do fundo */
+  padding: 10px 0;
+  gap: 40px; /* controla o espaçamento entre os botões */
+  border-bottom: 1px solid #ccc;
+}
+
+.header button {
+  background-color: white;
+  color: #007acc;
+  border: 1px solid #007acc;
+  border-radius: 5px;
+  padding: 6px 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header button:hover {
+  background-color: #007acc;
+  color: white;
+}

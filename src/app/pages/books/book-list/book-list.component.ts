@@ -3,10 +3,11 @@ import { BookService } from '../../../services/book.service';
 import { Observable } from 'rxjs';
 import { Book } from '../../../infrastructure/types/book';
 import { AsyncPipe, NgComponentOutlet, NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-book-list',
-  imports: [NgFor, AsyncPipe],
+  imports: [NgFor, AsyncPipe, RouterLink],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
